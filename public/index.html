@@ -16,6 +16,9 @@
 
     <div x-data="totalPrices">
 
+        <div class=header>
+            <img src ="phonebill.png" alt="phonebill" width="10%">
+        </div>
         <h1>Total PhoneBill</h1>
         <h2>Price Plans</h2>
     
@@ -68,7 +71,7 @@
             <br>
     
             <button class="button" x-on:click="calculatePhoneBill()">Calculate Phone Bill</button>
-            <div class="message">
+            <div class="message" x-show="totalBill.length>0">
                 <span x-text="totalBill"></span>
             </div>
            
@@ -82,20 +85,20 @@
     
             <div>
                 <label for="createPlanName">Plan Name:</label>
-                <input x-model="newName" type="text" id="newName" placeholder="e.g. Sms 101">
+                <input x-model="newName" type="text" id="newName" placeholder="e.g. sms 101">
             </div>
             <br>
     
             <div>
                 <label for="CreateCallPrice">Call Price:</label>
-                <input x-model="newCall" type="text" id="newCall" placeholder="e.g. call">
+                <input x-model="newCall" type="text" id="newCall" placeholder="e.g. 3.5">
             </div>
             <br>
     
     
             <div>
                 <label for="createSmsPrice">Sms Price:</label>
-                <input x-model="newSms" type="text" id="newSms" placeholder="e.g. sms">
+                <input x-model="newSms" type="text" id="newSms" placeholder="e.g. 5.6">
             </div>
     
             <br>
@@ -118,18 +121,18 @@
     
             <div>
                 <label for="updatePlanName">Plan Name:</label>
-                <input x-model="planName" type="text" id="planName" placeholder="e.g. Sms 101">
+                <input x-model="planName" type="text" id="planName" placeholder="e.g. sms 101">
             </div>
     
             <div>
                 <label for="updateCallPrice">Call Price:</label>
-                <input x-model="callPrice" type="text" id="callPrice" placeholder="e.g. call">
+                <input x-model="callPrice" type="text" id="callPrice" placeholder="e.g. 1.6, 2.0">
             </div>
             <br>
     
             <div>
                 <label for="updateSmsPrice">Sms Price:</label>
-                <input x-model="smsPrice" type="text" id="smsPrice" placeholder="e.g. sms">
+                <input x-model="smsPrice" type="text" id="smsPrice" placeholder="e.g. 0.5, 1.5">
             </div>
             <br>
     
@@ -159,7 +162,7 @@
     
             <br>
 
-            <div class="message">
+            <div class="message" x-show="deleteMessage.length>0">
                 <span x-text="deleteMessage"></span>
             </div>
             <br>
@@ -173,8 +176,9 @@
     
 
     </div>
+    <hr>
 
-   
+   <footer><h5><em>Done by Musawenkosi Nyathi🙂</em></h5></footer>
 
     
 

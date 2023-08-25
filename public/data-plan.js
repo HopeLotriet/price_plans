@@ -18,6 +18,7 @@ document.addEventListener('alpine:init', () => {
             createMessage: "",
             updateMessage: "",
             deleteMessage: "",
+            totalMessage: "",
          
 
             init(){
@@ -97,14 +98,16 @@ document.addEventListener('alpine:init', () => {
                 return axios.post('http://localhost:4011/api/phonebill',{
                     "price_plan": this.selectedPlanName,
                     "actions" : this.actions,
-                }).then(result => {
-                    this.totalBill = result.data.total;
+                }).then(response => {
+                    this.totalBill = response.data.total;
+                    
                     
 
                     setTimeout(() => {
                         this.totalBill = 0.00;
+                        
                         window.location.reload();
-                    }, 9000)
+                    }, 3000)
                     
                 })
                 .catch(error => {

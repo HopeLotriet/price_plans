@@ -6,23 +6,46 @@ html, body {
 body {
     background-color: #ffa781;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 20px'
+    font-size: 20px;
+    line-height: 1.5;
+    color: #333;
 }
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.header img {
+    width: 25%;
+    max-width: 100px; 
+    height: auto; 
+    margin-right: 10px; 
+    border: 2px solid;
+}
+
+
 
 h1{
     text-align: center;
     text-decoration: underline;
-    font-size: 50px;
+    font-size: 36px;
+    margin-top: 20px;
 }
 h2{
     text-align: center;
     text-decoration: underline;
+    font-size: 28px;
+    margin-top: 10px;
 }
 
 .container {
-    border: 1px solid;
-    border-radius: 0.5em;
-    margin: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
     background-color: #962050;
     flex: 1;
     
@@ -33,24 +56,85 @@ tr{
     margin: 0.5em;
     text-align: center;
     padding: 10px;
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
 }
 
 th, td{
-    border: 1.5px solid black;
-    margin: 0.5em;
+    
+    /* margin: 0.5em; */
     padding: 10px;
-    text-transform: capitalize;
+    text-align: center;
+    /* text-transform: capitalize; */
+}
+
+table, th, td {
+    border: 1.5px solid black;
 }
 
 table{
+    border-collapse: collapse;
     margin: auto;
-    border: 1.5px solid black;
     width: 90%;
     padding: 10px;
-    border-collapse: collapse;
+    
 }
 
 .box1 {
     display: flex;
+    /* flex-wrap: wrap; */
+    /* justify-content: space-between; */
+    margin: 20px;
+}
+
+label {
+    /* display: block; */
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: white;
+}
+
+input[type="text"] {
+   
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background-color: #45a049;
+}
+
+.message {
+    margin-top: 10px;
+    color: white;
+    text-align: center;
+    border: 1px solid;
+}
+
+footer {
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .container {
+        margin: 10px 0;
+    }
+    .box1 {
+        margin: 10px;
+    }
 }

@@ -4,6 +4,12 @@ import sqlite3 from 'sqlite3';
 
 
 
+const app = express ();
+
+app.use(express.static('public'))
+
+app.use(express.json());
+
 const  db = await sqlite.open({
     filename:  './price_plan.db',
     driver:  sqlite3.Database
@@ -11,11 +17,6 @@ const  db = await sqlite.open({
 
 await db.migrate()
 
-const app = express ();
-
-app.use(express.static('public'))
-
-app.use(express.json());
 
 //Return a list of all available price plans
 
@@ -88,7 +89,9 @@ app.post('/api/phonebill', async(req, res) => {
     });
      
     res.json({
-        total : `The total Bill is R${total.toFixed(2)}`,
+    
+        total: `R${total.toFixed(2)}`
+        
 
     });
 
