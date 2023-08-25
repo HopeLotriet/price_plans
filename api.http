@@ -1,0 +1,39 @@
+POST http://localhost:4011/api/phonebill
+Content-Type: application/json
+
+{
+    "price_plan": "sms 101",
+    "actions" : "call, sms, call"
+}
+
+###
+GET http://localhost:4011/api/price_plans
+
+
+###
+POST http://localhost:4011/api/price_plan/create
+Content-Type: application/json
+
+{
+    "plan_name": "sms_kick_100",
+    "call_price" : 2.65,
+    "sms_price": 0.45
+}
+
+###
+POST http://localhost:4011/api/price_plan/update
+Content-Type: application/json
+
+{
+    "plan_name": "sms_kick_100",
+    "call_price" : 2.65,
+    "sms_price": 0.45
+}
+
+###
+POST http://localhost:4011/api/price_plan/delete
+Content-Type: application/json
+
+{
+    "id": 9
+}

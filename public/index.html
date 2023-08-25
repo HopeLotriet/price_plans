@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="data-plan.js" defer></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div x-data="totalPrices">
+
+        <h1>Total PhoneBill</h1>
+        <h2>Price Plans</h2>
+    
+        <section class="box">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Plan Name</th>
+                        <th>SMS Price</th>
+                        <th>Call Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <template x-for="plan in pricePlan">
+
+                        <tr>
+                        
+                            <td x-text="plan.id"></td>
+                            <td x-text="plan.plan_name"></td>
+                            <td x-text="plan.sms_price"></td>
+                            <td x-text="plan.call_price"></td>
+                       
+                    </tr>
+                    </template>
+                   
+                </tbody>
+            </table>
+            <br>
+            <hr>
+            <br>
+    
+        </section>
+
+        <div class="box1">
+
+            
+        <section class="container">
+            <h2>Phone Bill</h2>
+    
+            <div>
+                <label for="selectedPlanName">Price Plan:</label>
+                <input x-model="selectedPlanName" type="text" id="selectedPlanName" placeholder="Plan name">
+                <br>
+                <br>
+                <label for="actions">Enter usage:</label>
+                <input x-model="actions" type="text" id="actions" placeholder="e.g. call, sms, call">
+            </div>
+            <br>
+    
+            <button class="button" x-on:click="calculatePhoneBill()">Calculate Phone Bill</button>
+            <div class="message">
+                <span x-text="totalBill"></span>
+            </div>
+           
+    
+            <br>
+    
+        </section>
+        <br>
+        <section class="container">
+            <h2>Create Price Plan</h2>
+    
+            <div>
+                <label for="createPlanName">Plan Name:</label>
+                <input x-model="newName" type="text" id="newName" placeholder="e.g. Sms 101">
+            </div>
+            <br>
+    
+            <div>
+                <label for="CreateCallPrice">Call Price:</label>
+                <input x-model="newCall" type="text" id="newCall" placeholder="e.g. call">
+            </div>
+            <br>
+    
+    
+            <div>
+                <label for="createSmsPrice">Sms Price:</label>
+                <input x-model="newSms" type="text" id="newSms" placeholder="e.g. sms">
+            </div>
+    
+            <br>
+            <div><button class="button" x-on:click="createPricePlan()">Create Price Plan</button></div>
+            <br>
+
+            <div class="message" x-show="createMessage.length>0">
+                <span x-text="createMessage"></span>
+            </div>
+            <br>
+    
+        </section>
+        <br>
+        </div>
+    
+    <div class="box1">
+
+        <section class="container">
+            <h2>Update Price Plan</h2>
+    
+            <div>
+                <label for="updatePlanName">Plan Name:</label>
+                <input x-model="planName" type="text" id="planName" placeholder="e.g. Sms 101">
+            </div>
+    
+            <div>
+                <label for="updateCallPrice">Call Price:</label>
+                <input x-model="callPrice" type="text" id="callPrice" placeholder="e.g. call">
+            </div>
+            <br>
+    
+            <div>
+                <label for="updateSmsPrice">Sms Price:</label>
+                <input x-model="smsPrice" type="text" id="smsPrice" placeholder="e.g. sms">
+            </div>
+            <br>
+    
+    
+            <button class="button" x-on:click="updatePricePlan()">Update Price Plan</button>
+            <br>
+
+            <div class="message" x-show="updateMessage.length>0">
+                <span x-text="updateMessage"></span>
+            </div>
+            <br>
+        </section>
+        <br>
+    
+    
+        <section class="container">
+            <h2>Delete Price Plan</h2>
+    
+            <div>
+                <label for="deletePlanId">Plan ID:</label>
+                <input x-model="id" type="text" id="id" placeholder="Enter Plan ID">
+            </div>
+            <br>
+    
+            
+            <button class="button" x-on:click="deletePricePlan()">Delete Price Plan</button>
+    
+            <br>
+
+            <div class="message">
+                <span x-text="deleteMessage"></span>
+            </div>
+            <br>
+        </section>
+        <br>
+
+
+    </div>
+    
+       
+    
+
+    </div>
+
+   
+
+    
+
+</body>
+
+</html>
