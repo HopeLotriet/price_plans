@@ -27,7 +27,7 @@ document.addEventListener('alpine:init', () => {
             },
 
             getPricePlan() {
-                const getPricePlanURL = `http://localhost:4011/api/price_plans`
+                const getPricePlanURL = `/api/price_plans`
                 return axios.get(getPricePlanURL)
                 .then(result => {
                     this.pricePlan = result.data.getPlan;
@@ -40,7 +40,7 @@ document.addEventListener('alpine:init', () => {
             },
 
                createPricePlan() {
-                return axios.post('http://localhost:4011/api/price_plan/create', {
+                return axios.post('/api/price_plan/create', {
                     "plan_name": this.newName,
                     "call_price": this.newCall,
                     "sms_price": this.newSms
@@ -58,7 +58,7 @@ document.addEventListener('alpine:init', () => {
             },
 
               updatePricePlan() {
-                return axios.post('http://localhost:4011/api/price_plan/update', {
+                return axios.post('/api/price_plan/update', {
                     "plan_name": this.planName,
                     "call_price" : this.callPrice,
                     "sms_price": this.smsPrice,
@@ -76,7 +76,7 @@ document.addEventListener('alpine:init', () => {
             },
 
             deletePricePlan(id) {
-                return axios.post('http://localhost:4011/api/price_plan/delete', {
+                return axios.post('/api/price_plan/delete', {
                     "id":this.id,
                 }).then(result => {
                    
@@ -95,7 +95,7 @@ document.addEventListener('alpine:init', () => {
 
 
             calculatePhoneBill() {
-                return axios.post('http://localhost:4011/api/phonebill',{
+                return axios.post('/api/phonebill',{
                     "price_plan": this.selectedPlanName,
                     "actions" : this.actions,
                 }).then(response => {
